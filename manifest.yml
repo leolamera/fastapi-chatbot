@@ -1,0 +1,8 @@
+
+applications:
+- name: chatbot-server
+  memory: 64MB
+  disk_quota: 2GB
+  random-route: false
+  buildpack: python_buildpack
+  command: uvicorn src.main:app --host=0.0.0.0 --port=${PORT:-8000}
