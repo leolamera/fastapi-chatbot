@@ -1,6 +1,6 @@
 
 applications:
-- name: chatbot-server
+- name: chatbot-python
   memory: 64MB
   disk_quota: 2GB
   random-route: false
