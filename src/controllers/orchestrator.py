@@ -7,6 +7,7 @@ webhook = APIRouter()
 
 @webhook.post('/')
 def webhook_frontend(request: WebEvent):
+    print(request)
     webhook_page(request)
 
     return []
