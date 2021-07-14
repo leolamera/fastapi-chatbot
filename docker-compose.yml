@@ -1,0 +1,10 @@
+version: '2.2'
+
+servives:
+    api:
+        build:
+            './'
+        container_name: 'api-fastapi'
+        restart: always
+        ports:
+            - "8000:8000"
