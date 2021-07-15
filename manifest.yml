@@ -1,7 +1,7 @@
 
 applications:
 - name: chatbot-python
-  memory: 64MB
+  memory: 150MB
   disk_quota: 2GB
   random-route: false
   buildpack: python_buildpack
