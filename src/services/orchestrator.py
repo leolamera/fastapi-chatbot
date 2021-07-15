@@ -5,8 +5,13 @@ from src.jobs.pusher import send_push
 
 from src.models.interfaces import WebEvent
 
+from src.jobs.actions import get_order
+
+
 def webhook_page(request: WebEvent):
     event_id = request.eventId
+    message = request.message    
+
 
     status = verify_status(event_id)
     foward_function = status_pipeline[status]
@@ -20,6 +25,14 @@ def webhook_page(request: WebEvent):
         return []
     
     print("RODAR ACTION")
+
+    if action_response == 'statusOrder':
+        response = get_order(message)
+        send_push(event_id, response)
+
+    if action_response != 'statusOrder':
+        response = get_order(message)
+        send_push(event_id, 'integração momentaneamente fora do ar')
     for text_response in text_response_list:
         send_push(event_id, text_response)
 
