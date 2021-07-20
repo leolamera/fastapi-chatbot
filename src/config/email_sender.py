@@ -13,7 +13,7 @@ def create_email_dict(receiver_address: str, subject: str):
 
 def send_text_email(mail_content: str, email_dict: MIMEMultipart): 
     email_dict.attach(MIMEText(mail_content, 'plain'))
-    pass
+    return []
 
 def smtp_session(email_dict: MIMEMultipart, receiver_address: str):
     session = smtplib.SMTP("smtp.gmail.com", 587)
@@ -24,11 +24,11 @@ def smtp_session(email_dict: MIMEMultipart, receiver_address: str):
     text = email_dict.as_string()
     session.sendmail('lameranha@gmail.com', receiver_address, text)
     session.quit()
-    pass
+    return []
 
 def send_email(receiver_address: str, subject: str, mail_content: str):
     email_dict = create_email_dict(receiver_address, subject)
     send_text_email(mail_content, email_dict)
     smtp_session(email_dict, receiver_address)
-    pass
+    return []
 
