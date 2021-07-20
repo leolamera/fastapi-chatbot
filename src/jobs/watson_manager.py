@@ -31,3 +31,11 @@ def get_action_response(watson_response):
         return action
     except:
         return True
+
+def get_body_response(watson_response):
+    try:
+        body = watson_response['output']['user_defined']['body']
+        print(watson_response['output']['user_defined'])
+        return body
+    except:
+        return True

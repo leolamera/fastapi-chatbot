@@ -1,11 +1,11 @@
 from src.pipes.orchestrator import status_pipeline, verify_status
 
-from src.jobs.watson import get_text_response, get_action_response
-from src.jobs.pusher import send_push
+from src.jobs.watson_manager import get_text_response, get_action_response
+from src.jobs.pusher_output import send_push
 
 from src.models.interfaces import WebEvent
 
-from src.jobs.actions import get_order
+from src.pipes.actions import actions_pipeline
 
 
 def webhook_page(request: WebEvent):
@@ -25,14 +25,11 @@ def webhook_page(request: WebEvent):
         return []
     
     print("RODAR ACTION")
+    action_function = actions_pipeline[action_response]
 
-    if action_response == 'statusOrder':
-        response = get_order(message)
-        send_push(event_id, response)
+    response = action_function(message, feedback_response)
+    send_push(event_id, response)
 
-    if action_response != 'statusOrder':
-        response = get_order(message)
-        send_push(event_id, 'integração momentaneamente fora do ar')
     for text_response in text_response_list:
         send_push(event_id, text_response)
 

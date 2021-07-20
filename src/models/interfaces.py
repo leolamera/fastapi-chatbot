@@ -2,6 +2,12 @@ from pydantic import BaseModel
 from typing import Optional
 from bson import ObjectId
 
+class BodyAttendence(BaseModel):
+    _id: Optional[ObjectId]
+    name: str
+    type: str
+    email: str
+
 class WebEvent(BaseModel):
     _id: Optional[ObjectId]
     eventId: str

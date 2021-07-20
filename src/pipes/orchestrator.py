@@ -1,6 +1,5 @@
-from src.jobs.mongodb import store_event, store_status, store_context, find_store_context_by_id
-from src.jobs.watson import create_session, send_text
-from src.jobs.mongodb import find_status_by_id
+from src.jobs.mongo_sessions import store_event, store_status, store_context, find_store_context_by_id, find_status_by_id
+from src.jobs.watson_manager import create_session, send_text
 
 from src.models.interfaces import WebEvent, WatsonResponse
 

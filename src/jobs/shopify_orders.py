@@ -29,8 +29,6 @@ def format_response(order):
     return text_response
 
 
-
-
 def input_type(message_input: str):
     if '@' in message_input:
         return 'email'
@@ -47,7 +45,7 @@ def get_order_by_email(orders_list: list, message_input: str):
         if message_input == str(order['email']):
             return format_response(order)
 
-def get_order(message_input: str):
+def get_order(message_input: str, feedback_response=None):
     input_message_type = input_type(message_input)
 
     response = requests.get(urlApi).json()

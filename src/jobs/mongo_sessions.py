@@ -1,8 +1,6 @@
 from src.config.database_mongo import events_collection, contexts_collection, status_collection
 from src.models.interfaces import WebEvent, Context, Status
 
-# EXPORTS
-
 # EVENTS
 def store_event(data: WebEvent):
     dict_data = dict(data)
