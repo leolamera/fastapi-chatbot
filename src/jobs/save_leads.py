@@ -3,7 +3,7 @@ from src.jobs.watson_manager import get_body_response
 from src.models.interfaces import BodyAttendence
 
 def save_lead(input_text: str, feedback_response=None):
-    receiver_address = 'datajus.services@gmail.com'
+    receiver_address = 'lameranha@gmail.com'
     subject = '📪 Um novo Lead acabou de se cadastrar'
     
 

@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 def create_email_dict(receiver_address: str, subject: str):
     message = MIMEMultipart()
 
-    message['From'] = 'lameranha@gmail.com'
+    message['From'] = 'datajus.services@gmail.com'
     message['To'] = receiver_address
     message['Subject'] = subject
     
@@ -20,10 +20,11 @@ def smtp_session(email_dict: MIMEMultipart, receiver_address: str):
     session.ehlo()
     session.starttls()
     session.ehlo()
-    session.login('lameranha@gmail.com', 'Lari$$inha1102')
+    session.login('datajus.services@gmail.com', 'D@T@jus2021')
     text = email_dict.as_string()
-    session.sendmail('lameranha@gmail.com', receiver_address, text)
+    session.sendmail('datajus.services@gmail.com', receiver_address, text)
     session.quit()
+    session.close()
     return []
 
 def send_email(receiver_address: str, subject: str, mail_content: str):
