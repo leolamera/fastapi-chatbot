@@ -2,6 +2,11 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+import os
+
+gmail_password = os.environ.get('gmail_password')
+print(gmail_password)
+
 def create_email_dict(receiver_address: str, subject: str):
     message = MIMEMultipart()
 
@@ -20,7 +25,7 @@ def smtp_session(email_dict: MIMEMultipart, receiver_address: str):
     session.ehlo()
     session.starttls()
     session.ehlo()
-    session.login('datajus.services@gmail.com', 'D@T@jus2021')
+    session.login('datajus.services@gmail.com', gmail_password)
     text = email_dict.as_string()
     session.sendmail('datajus.services@gmail.com', receiver_address, text)
     session.quit()
