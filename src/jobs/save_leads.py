@@ -17,7 +17,7 @@ def save_lead(input_text: str, feedback_response=None):
     return 'Consegui liberar seu cupom'
 
 def store_attendance(input_text, feedback_response):
-    receiver_address = 'datajus.services@gmail.com'
+    receiver_address = 'lameranha@gmail.com'
     subject = '🤫 Uma nova solicitação de atendimento chegou'
 
     body: BodyAttendence = get_body_response(feedback_response)
