@@ -12,7 +12,7 @@ def save_lead(input_text: str, feedback_response=None):
         send_email(receiver_address, subject, mail_content)
         return 'Consegui liberar seu cupom'
 
-    mail_content = f'email: {input_text}'
+    mail_content = f'telefone: {input_text}'
     send_email(receiver_address, subject, mail_content)
     return 'Consegui liberar seu cupom'
 
