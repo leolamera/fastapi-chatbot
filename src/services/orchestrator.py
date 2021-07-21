@@ -8,7 +8,7 @@ from src.models.interfaces import WebEvent
 from src.pipes.actions import actions_pipeline
 
 
-def webhook_page(request: WebEvent):
+async def webhook_page(request: WebEvent):
     event_id = request.eventId
     message = request.message    
 
@@ -27,7 +27,7 @@ def webhook_page(request: WebEvent):
     print("RODAR ACTION")
     action_function = actions_pipeline[action_response]
 
-    response = action_function(message, feedback_response)
+    response = await action_function(message, feedback_response)
     send_push(event_id, response)
 
     for text_response in text_response_list:
