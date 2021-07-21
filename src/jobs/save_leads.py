@@ -17,7 +17,7 @@ async def save_lead(input_text: str, feedback_response=None):
     return 'Consegui liberar seu cupom'
 
 async def store_attendance(input_text, feedback_response):
-    receiver_address = 'lameranha@gmail.com'
+    receivers_address = ['lameranha@gmail.com', 'contatoencaracolados@gmail.com']
     subject = '🤫 Uma nova solicitação de atendimento chegou'
 
     body: BodyAttendence = get_body_response(feedback_response)
@@ -26,7 +26,8 @@ async def store_attendance(input_text, feedback_response):
     email = body['email']
 
     mail_content = f'nome completo: {name}\n email: {email}\n assunto: {type}\n'
-    await send_email(receiver_address, subject, mail_content)
-    return 'Criando ticket de atendimento ...'
+    for receiver_address in receivers_address:
+        await send_email(receiver_address, subject, mail_content)
+        return 'Criando ticket de atendimento ...'
 
 
