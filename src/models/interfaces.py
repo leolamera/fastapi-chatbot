@@ -7,6 +7,8 @@ class BodyAttendence(BaseModel):
     name: str
     type: str
     email: str
+    phone: str
+    obs: str
 
 class WebEvent(BaseModel):
     _id: Optional[ObjectId]
