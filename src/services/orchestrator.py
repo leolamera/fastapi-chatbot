@@ -24,7 +24,6 @@ async def webhook_page(request: WebEvent):
 
         return []
     
-    print("RODAR ACTION")
     action_function = actions_pipeline[action_response]
 
     response = await action_function(message, feedback_response)

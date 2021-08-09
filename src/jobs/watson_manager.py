@@ -27,7 +27,6 @@ def get_text_response(watson_response):
 def get_action_response(watson_response):
     try:
         action = watson_response['output']['user_defined']['action']
-        print(watson_response['output']['user_defined'])
         return action
     except:
         return True
@@ -35,7 +34,6 @@ def get_action_response(watson_response):
 def get_body_response(watson_response):
     try:
         body = watson_response['output']['user_defined']['body']
-        print(watson_response['output']['user_defined'])
         return body
     except:
         return True
